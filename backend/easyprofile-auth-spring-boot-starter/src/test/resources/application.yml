@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:authlib;MODE=MySQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+sa-token:
+  token-name: satoken
+  is-read-header: true
+  is-read-cookie: false
+  is-log: false
+
+authlib:
+  cors:
+    allowed-origins:
+      - http://localhost:3000
+  avatar:
+    upload-dir: ./target/test-avatars
+    base-url: /uploads/avatars
+    max-size-bytes: 1048576
+  reset-password:
+    cooldown-days: 7
+  token-timeout: 3600
+  security:
+    require-old-password-on-reset: true

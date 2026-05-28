@@ -1,0 +1,20 @@
+authlib:
+  enabled: true
+  cors:
+    allowed-origins:
+      - http://localhost:3000
+  avatar:
+    upload-dir: ./uploads/avatars
+    base-url: /uploads/avatars
+    max-size-bytes: 5242880
+  reset-password:
+    cooldown-days: 7
+  token-timeout: 604800
+  security:
+    require-old-password-on-reset: true
+
+sa-token:
+  token-name: satoken
+  is-read-header: true
+  is-read-cookie: false
+  is-log: false
